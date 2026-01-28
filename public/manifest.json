@@ -1,0 +1,9 @@
+{
+  "name": "True Hourly Wage Calculator",
+  "short_name": "Wage Calculator",
+  "description": "Calculate your real hourly profit as a gig economy driver",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b"
+}
