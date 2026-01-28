@@ -17,7 +17,7 @@ export function SupportCard() {
         </div>
 
         <a
-          href="https://buymeacoffee.com/YOUR_HANDLE"
+          href="https://buymeacoffee.com/gigwagecalc"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-amber-500 hover:bg-amber-400 

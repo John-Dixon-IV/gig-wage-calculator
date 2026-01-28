@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://YOUR_DOMAIN.com",
+    url: "https://gigwagecalc.com",
     siteName: "True Hourly Wage Calculator",
     title: "True Hourly Wage Calculator for Gig Drivers",
     description:
       "Most gig drivers overestimate their earnings by 40%. See your REAL hourly profit after all expenses.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://gigwagecalc.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "True Hourly Wage Calculator - See what you really earn",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "True Hourly Wage Calculator for Gig Drivers",
     description:
       "Most gig drivers overestimate their earnings by 40%. See your REAL hourly profit after all expenses.",
-    images: ["/og-image.png"],
+    images: ["https://gigwagecalc.com/og-image.png"],
   },
   robots: {
     index: true,
