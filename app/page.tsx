@@ -89,8 +89,6 @@ export default function HomePage() {
           <div className="mt-8 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <ResultsCard results={results} />
 
-            <SupportCard />
-
             <ComparisonChart
               grossHourly={results.appHourlyRate}
               netHourly={results.realHourlyProfit}
@@ -158,6 +156,11 @@ export default function HomePage() {
             </p>
           </div>
         )}
+
+        {/* Support Card - Always visible */}
+        <div className="mt-8">
+          <SupportCard />
+        </div>
       </section>
 
       {/* Footer */}
