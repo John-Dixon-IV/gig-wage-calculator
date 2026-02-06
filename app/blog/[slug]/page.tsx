@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { format } from "date-fns";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/blog";
@@ -125,7 +126,11 @@ export default function BlogPostPage({ params }: Props) {
 
         {/* Content */}
         <div className="prose-custom">
-          <MDXRemote source={post.content} components={components} />
+          <MDXRemote
+            source={post.content}
+            components={components}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </div>
 
         {/* Back to blog */}
