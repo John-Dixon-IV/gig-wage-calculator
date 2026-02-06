@@ -1,22 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, Bricolage_Grotesque } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { websiteJsonLd } from "@/lib/json-ld";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-body",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "True Hourly Wage Calculator for Gig Drivers | Uber, Lyft, DoorDash",
+  title: {
+    default:
+      "True Hourly Wage Calculator for Gig Drivers | Uber, Lyft, DoorDash",
+    template: "%s | GigWageCalc",
+  },
   description:
     "Calculate your REAL hourly profit as a gig economy driver. See what you actually earn after gas, vehicle depreciation, and self-employment taxes. Free tool for Uber, Lyft, and DoorDash drivers.",
   keywords: [
@@ -35,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gigwagecalc.com",
-    siteName: "True Hourly Wage Calculator",
+    siteName: "GigWageCalc",
     title: "True Hourly Wage Calculator for Gig Drivers",
     description:
       "Most gig drivers overestimate their earnings by 40%. See your REAL hourly profit after all expenses.",
@@ -66,6 +74,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    types: {
+      "application/rss+xml": "https://gigwagecalc.com/feed.xml",
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -81,14 +94,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="en"
+      className={`${ibmPlexSans.variable} ${bricolageGrotesque.variable}`}
+    >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="GigWageCalc Blog"
+          href="/feed.xml"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+        />
       </head>
       <body className="font-sans antialiased">
+        <SiteHeader />
         {children}
+        <SiteFooter />
         <Analytics />
       </body>
     </html>

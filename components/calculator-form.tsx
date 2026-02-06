@@ -4,7 +4,7 @@ import { CalculatorInputs, CalculationMode } from "@/lib/calculate-net-profit";
 import {
   DollarSign,
   Clock,
-  Route,
+  MapPin,
   Fuel,
   Gauge,
   Percent,
@@ -100,7 +100,7 @@ export function CalculatorForm({ inputs, onInputChange }: CalculatorFormProps) {
             value={inputs.milesDriven || ""}
             onChange={handleChange("milesDriven")}
             placeholder="500"
-            icon={<Route className="h-4 w-4" />}
+            icon={<MapPin className="h-4 w-4" />}
             suffix="mi"
             hint="Total business miles"
           />
